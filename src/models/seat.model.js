@@ -1,33 +1,28 @@
 const mongoose = require("mongoose");
 
 const seatSchema = new mongoose.Schema({
-    trip: {
+    busId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Trip',
-      required: true
-    },
-    number: {
+      ref: 'Bus',
+     required:true
+    },    
+    seatNumber: [{
       type: Number,
-      required: true
-    },
-    isOccupied: {
-      type: Boolean,
-      default: false
+      required: true,     
+    }],    
+    passangerName:{
+      type:String,
+      required:true
     },
     gender: {
       type: String,
       enum: ['Male', 'Female'],
-      required: true
+      required: true,      
     },
-    passenger: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      default: null
-    },
-    isAdjacentOccupied: {
-      type: Boolean,
-      default: false
-    }
+      ref: 'User',      
+    }    
   },{
     timestamps:true
   });

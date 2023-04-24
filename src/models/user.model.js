@@ -6,10 +6,22 @@ var validateEmail = function(email) {
 };
 
 const userSchema = mongoose.Schema({
-    username:{
+    userName:{
         type:String,
         required:true,
         unique:true
+    },
+    isAdmin:{
+        type:Boolean,
+        default:false
+    },
+    firstName:{
+        type:String,
+        required:true
+    },
+    lastName:{
+        type:String,
+        required:true 
     },
     age:{
         type:Number,
@@ -19,6 +31,10 @@ const userSchema = mongoose.Schema({
         type: String,
         enum: ['Male', 'Female'],
         required: true,        
+    },
+    address:{
+        type:String,
+        required:true
     },
     email:{
         type:String,

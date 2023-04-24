@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
 
-const tripSchema = new mongoose.Schema({
-    id:{
-        type: mongoose.Schema.Types.ObjectId,        
+const routesSchema = new mongoose.Schema({   
+    bus:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"Bus"
     },
     from: {
         type: String,
@@ -19,18 +20,9 @@ const tripSchema = new mongoose.Schema({
       price:{
         type:Number,
         required:true
-      },
-      emptySeats:{
-        type:Boolean, 
-        required:true       
-      },
-      fullSeats:{
-        type:Boolean, 
-        required:true
-      }
-
+      },  
 },{
     timestamps:true
 })
 
-module.exports = mongoose.model("Trip" , tripSchema)
+module.exports = mongoose.model("Route" , routesSchema)

@@ -1,8 +1,10 @@
 const mongoose = require('mongoose');
 
-const ticketBuySchema = new mongoose.Schema({
-  ticketId:{
+const cartSchema = new mongoose.Schema({
+  cartId:{
     type: mongoose.Schema.Types.ObjectId,
+    required:true,
+    unique:true
   },
   user: {
     type: mongoose.Schema.Types.ObjectId,
@@ -14,9 +16,9 @@ const ticketBuySchema = new mongoose.Schema({
     ref: 'Booking',
     required: true
   },
-  trip:{
+  route:{
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Trip',
+    ref: 'Route',
     required: true
   },
   quantity: {
@@ -26,13 +28,9 @@ const ticketBuySchema = new mongoose.Schema({
   totalPrice: {
     type: Number,
     required: true
-  },
-  paymentStatus: {
-    type: String,
-    enum: ['Confirmed'],    
-  }
+  }  
 },{
     timestamps:true
 });
 
-module.exports = mongoose.model('Ticket', ticketBuySchema);
+module.exports = mongoose.model('Cart', cartSchema);

@@ -1,32 +1,24 @@
 const mongoose = require('mongoose');
 
 const bookingSchema = new mongoose.Schema({
-  user: {
+  id:{
+    type: mongoose.Schema.Types.ObjectId,
+    required:true,
+    unique:true
+  },
+  userName: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
   },  
-  seatNumber: {
-    type: Number,
-    required: true
-  },
-  destination: {
-    from: {
-      type: String,
-      required: true
-    },
-    to: {
-      type: String,
-      required: true
-    }
-  },
-  price:{
+  routeId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'Route',
+    required:true,
+  },  
+  totalprice:{
     type:Number,
     required:true
-  },
-  departureDate: {
-    type: Date,
-    required: true
   }  
 },{
   timestamps:true

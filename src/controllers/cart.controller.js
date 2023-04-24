@@ -1,5 +1,5 @@
 const Ticket = require("../models/ticketBuy.model");
-const Trip = require("../models/trip.model");
+const Trip = require("../models/route.model");
 const Booking = require("../models/booking.model");
 
 const getTickets = async (req,res) => {
